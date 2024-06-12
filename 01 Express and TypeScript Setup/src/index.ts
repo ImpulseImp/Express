@@ -3,7 +3,7 @@ import usersRouter from './router/users';
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 3001;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
