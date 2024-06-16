@@ -13,11 +13,7 @@ export const authenticationMiddleware = async (
   console.log(req.headers.authorization);
   const authHeader = req.headers.authorization;
   console.log(authHeader === 'Bearer null');
-  if (
-    !authHeader ||
-    !authHeader.startsWith('Bearer ') ||
-    authHeader === 'Bearer null'
-  ) {
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
     throw new UnauthenticatedError('No token provided');
   }
   const token = authHeader.split(' ')[1];
