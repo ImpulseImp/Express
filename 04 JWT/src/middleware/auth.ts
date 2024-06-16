@@ -20,7 +20,6 @@ export const authenticationMiddleware = async (
       token,
       process.env.JWT_SECRET as string
     ) as JwtPayloadType;
-    console.log(decoded);
     const { id, username } = decoded;
     req.user = { id, username };
   } catch (error) {
