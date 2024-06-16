@@ -10,14 +10,11 @@ export const authenticationMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(req.headers.authorization);
   const authHeader = req.headers.authorization;
-  console.log(authHeader === 'Bearer null');
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     throw new UnauthenticatedError('No token provided');
   }
   const token = authHeader.split(' ')[1];
-  console.log(token);
   try {
     const decoded = jwt.verify(
       token,
